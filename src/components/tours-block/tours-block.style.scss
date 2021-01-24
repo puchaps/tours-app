@@ -1,0 +1,32 @@
+.tours-block {
+  width: 40%;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 10px;
+  
+
+  .tours-block-title {
+    text-align: center;
+
+    h1 {
+      position: relative;
+      font-size: 40px;  
+      padding-bottom: 10px;
+      opacity: 0.8;
+
+      &:after {
+        position: absolute;
+       content: "";
+       height: 2.5px;
+       background-color: rgb(50, 192, 211);
+       width: 15%;
+       margin-left: 15px;
+       right: 42%;
+       bottom: 0;
+       
+      }
+    }
+
+
+  }
+}

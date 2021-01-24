@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
+import { connect } from 'react-redux';
 
-function App() {
+import { getCurrentToursStartAC } from './redux/reducers/tour/actions/tour.actions';
+import { selectorCurrentTours } from './redux/reducers/tour/selectors/tours.selectors';
+
+import TourBlock from './components/tours-block/tours-block.component';
+import Loader from './components/loader/loader.component';
+
+const App = ({getCurrentToursStart, currentTours}) => {
+  useEffect(() => {
+    getCurrentToursStart();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Loader loader = {currentTours}>
+        <TourBlock>
+        </TourBlock>
+      </Loader>
     </div>
   );
-}
+};
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  getCurrentToursStart: () => dispatch(getCurrentToursStartAC())
+});
+
+const mapStateToProps = state => ({
+  currentTours: selectorCurrentTours(state)
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
