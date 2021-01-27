@@ -18,12 +18,12 @@ const TourItem = ({ id, name, info, image, price, deleteChoosedTour }) => {
           <TourInfo info = {info}/>
         </div>
         <div className="tour-item-btn">
-          <CustomButton onClick = {() => deleteChoosedTour(id)}>
-            Not Interested
-          </CustomButton>
+        <CustomButton onClick = {() => deleteChoosedTour(id)}>
+          Not Interested
+        </CustomButton>
         </div>
       </div>
-    </div>
+    </div>  
   );
 };
 
