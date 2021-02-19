@@ -1,37 +1,48 @@
-import { 
-  DELETE_CHOOSED_TOUR,
+import {
+  DELETE_CHOSEN_TOUR,
   GET_CURRENT_TOURS_FAILED,
-  GET_CURRENT_TOURS_SUCCSES
+  GET_CURRENT_TOURS_SUCCESS,
+  TOGGLE_LOADER,
 } from "./types/tour.types";
-import { deleteChoosedTourFromCurrentTours } from "./utils/tour.utils";
+
+import deleteChosenTourFromCurrentTours from "./utils/tour.utils";
 
 const INITIAL_STATE = {
   currentTours: null,
-  error: null
+  error: null,
+  loader: false,
 };
 
 const tourReducer = (state = INITIAL_STATE, action) => {
-  switch(action.type) {
-    case GET_CURRENT_TOURS_SUCCSES:
+  switch (action.type) {
+    case GET_CURRENT_TOURS_SUCCESS:
       return {
         ...state,
         currentTours: action.payload,
-        error: null
+        error: null,
       };
     case GET_CURRENT_TOURS_FAILED:
       return {
         ...state,
         currentTours: null,
-        error: action.payload
+        error: action.payload,
       };
-    case DELETE_CHOOSED_TOUR:
+    case DELETE_CHOSEN_TOUR:
       return {
         ...state,
-        currentTours: deleteChoosedTourFromCurrentTours(state.currentTours, action.payload)
-      }
+        currentTours: deleteChosenTourFromCurrentTours(
+          state.currentTours,
+          action.payload
+        ),
+      };
+    case TOGGLE_LOADER:
+      return {
+        ...state,
+        loader: !state.loader,
+      };
     default:
       return state;
-  };
+  }
 };
 
 export default tourReducer;

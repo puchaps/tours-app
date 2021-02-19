@@ -1,20 +1,19 @@
-import './loader.styles.scss';
+import React from "react";
 
-const Loader = ({ loader, children }) => {
-  if (!loader) {
+import "./loader.styles.scss";
+
+const Loader = ({ onLoader, children }) => {
+  if (onLoader) {
     return (
-      <img 
-      className = 'loadre-image'
-      src={'https://themoment-s3-bucket.s3-us-west-2.amazonaws.com/app/wait_animation_small.gif'}
-      alt="loader"/>
+      <img
+        className="loader-img"
+        src="https://www.flaticon.com/svg/vstatic/svg/455/455589.svg?token=exp=1613754365~hmac=f9537809513aec9bcc02f86d6737116c"
+        alt="loader"
+      />
     );
-  };
+  }
 
-  return(
-    <div className="loader">
-      {children}
-    </div>
-  );
+  return children;
 };
 
 export default Loader;

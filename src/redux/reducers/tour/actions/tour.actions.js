@@ -1,28 +1,28 @@
-import { 
+import {
   GET_CURRENT_TOURS_FAILED,
   GET_CURRENT_TOURS_START,
-  GET_CURRENT_TOURS_SUCCSES,
-  DELETE_CHOOSED_TOUR
+  GET_CURRENT_TOURS_SUCCESS,
+  DELETE_CHOSEN_TOUR,
+  TOGGLE_LOADER,
 } from "../types/tour.types";
 
-//////////////////--CURRNET-TOURS--//////////////////
 export const getCurrentToursStartAC = () => ({
-  type: GET_CURRENT_TOURS_START
+  type: GET_CURRENT_TOURS_START,
 });
-export const getCurrentToursSuccsesAC = (tours) => ({
-  type: GET_CURRENT_TOURS_SUCCSES,
-  payload: tours
+export const getCurrentToursSuccessAC = (tours) => ({
+  type: GET_CURRENT_TOURS_SUCCESS,
+  payload: tours,
 });
 export const getCurrentToursFailedAC = (error) => ({
   type: GET_CURRENT_TOURS_FAILED,
-  payload: error
+  payload: error,
 });
-//////////////////--CURRNET-TOURS--//////////////////
 
-
-//////////////////--DELETE-TOURS--//////////////////
-export const deleteChoosedTourAC = (choosedTour) => ({
-  type: DELETE_CHOOSED_TOUR,
-  payload: choosedTour
+export const deleteChosenTourAC = (chosenTour) => ({
+  type: DELETE_CHOSEN_TOUR,
+  payload: chosenTour,
 });
-//////////////////--DELETE-TOURS--//////////////////
+
+export const toggleLoaderAC = () => ({
+  type: TOGGLE_LOADER,
+});

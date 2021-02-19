@@ -1,3 +1,4 @@
-export const deleteChoosedTourFromCurrentTours = (currentTours, deleteTourId) => {
-  return currentTours.filter( item => item.id !== deleteTourId);
-};
+const deleteChosenTourFromCurrentTours = (currentTours, deleteTourId) =>
+  currentTours.filter((item) => item.id !== deleteTourId);
+
+export default deleteChosenTourFromCurrentTours;

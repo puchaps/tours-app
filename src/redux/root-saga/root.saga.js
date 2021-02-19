@@ -1,9 +1,7 @@
-import { call, all } from 'redux-saga/effects';
+import { call, all } from "redux-saga/effects";
 
-import tourSagas from '../reducers/tour/sagas/tour.sagas';
+import tourSagas from "../reducers/tour/sagas/tour.sagas";
 
 export default function* rootSaga() {
-  yield all([
-    call(tourSagas)
-  ]);
-};
+  yield all([call(tourSagas)]);
+}

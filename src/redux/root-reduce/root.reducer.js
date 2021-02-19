@@ -1,8 +1,7 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
-
-import tourReducer from '../reducers/tour/tour.reduce';
+import tourReducer from "../reducers/tour/tour.reduce";
 
 export default combineReducers({
-  tour: tourReducer
+  tour: tourReducer,
 });
